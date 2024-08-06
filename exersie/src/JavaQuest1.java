@@ -23,7 +23,7 @@ public class JavaQuest1 {
     int first = 31;
     // declare the second one
     // code here ...
-    int second = 32;
+    int second = 42;
 
     System.out.println("The first one: " + first);
     System.out.println("The second one: " + second);
