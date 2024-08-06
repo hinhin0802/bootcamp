@@ -36,7 +36,7 @@ public class JavaQuest1 {
     // subtraction
     // code here with tips, pls fix ...
     // subtract = first - second
-    int subtract = first - second;
+    int subtract = second - first;
     System.out.println("The subtraction reuslt is " + subtract);
 
     // another sum
@@ -44,13 +44,14 @@ public class JavaQuest1 {
     byte b2 = 70;
     // code here with tips, pls fix ...
     // sum = b1 + b2;
+    sum = b1 + b2;
     System.out.println("The another sum reuslt is " + sum);
 
     // declare two boolean variable with true and false value
     // code here
-    boolean varB = true;
+    boolean varB = false;
 
-    boolean varC = false;
+    boolean varC = true;
 
     System.out.println("The variable varB is " + varB);
     System.out.println("The variable varC is " + varC);
