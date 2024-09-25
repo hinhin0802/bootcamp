@@ -66,51 +66,37 @@ CREATE TABLE job_history (
   FOREIGN KEY (department_id) REFERENCES departments (department_id)
 );
 
--- Insert data into regions table
 INSERT INTO regions (region_id, region_name)
 VALUES
 (1, 'North America'),
-(2, 'South America'),
-(3, 'Europe'),
-(4, 'Asia'),
-(5, 'Africa'),
-(6, 'Australia');
+(2, 'South America');
 
--- Insert data into countries table
 INSERT INTO countries (country_id, country_name, region_id)
 VALUES
 ('US', 'United States', 1),
-('CA', 'Canada', 1),
-('BR', 'Brazil', 2),
-('FR', 'France', 3),
-('DE', 'Germany', 3),
-('CN', 'China', 4),
-('IN', 'India', 4),
-('ZA', 'South Africa', 5),
-('AU', 'Australia', 6);
+('CA', 'Canada', 1);
 
--- Insert data into locations table
 INSERT INTO locations (location_id, street_address, postal_code, city, state_province, country_id)
 VALUES
 (1, '123 Main St', '12345', 'New York', 'New York', 'US'),
-(2, '456 Elm St', '90210', 'Los Angeles', 'California', 'US'),
-(3, '789 Oak St', 'M5V 1K4', 'Toronto', 'Ontario', 'CA'),
-(4, '321 Pine St', '12345', 'Paris', 'Ile-de-France', 'FR'),
-(5, '901 Maple St', '12345', 'Berlin', 'Berlin', 'DE'),
-(6, '1111 Broadway', '12345', 'Shanghai', 'Shanghai', 'CN'),
-(7, '2222 Wall St', '12345', 'Mumbai', 'Maharashtra', 'IN'),
-(8, '3333 Park Ave', '12345', 'Cape Town', 'Western Cape', 'ZA'),
-(9, '4444 Bondi Rd', '12345', 'Sydney', 'New South Wales', 'AU');
+(2, '456 Elm St', '90210', 'Los Angeles', 'California', 'US');
 
--- Insert data into departments table
 INSERT INTO departments (department_id, department_name, manager_id, location_id)
 VALUES
 (1, 'Sales', 101, 1),
-(2, 'Marketing', 102, 2),
-(3, 'IT', 103, 3),
-(4, 'Finance', 104, 4),
-(5, 'HR', 105, 5),
-(6, 'Operations', 106, 6),
-(7, 'Research', 107, 7),
-(8, 'Development', 108, 8),
-(9, 'Support', 109, 9);
+(2, 'Marketing', 102, 2);
+
+INSERT INTO jobs (job_id, job_title, min_salary, max_salary)
+VALUES
+('SALESREP', 'Sales ', 40000.00, 80000.00),
+('SALESREP2', 'Senior Sales', 60000.00, 100000.00);
+
+INSERT INTO employees (employee_id, first_name, last_name, email, phone_number, hire_date, job_id, salary, commission_pct, manager_id, department_id)
+VALUES
+(101, 'John', 'Smith', 'john.smith@example.com', '123-456-7890', '2010-01-01', 'SALESREP', 60000.00, 0.10, 100, 1),
+(102, 'Jane', 'Doe', 'jane.doe@example.com', '987-654-3210', '2012-01-01', 'MARKETINGREP', 70000.00, 0.15, 100, 2);
+
+INSERT INTO job_history (employee_id, start_date, end_date, job_id, department_id)
+VALUES
+(101, '2010-01-01', '2015-12-31', 'SALESREP', 1),
+(101, '2016-01-01', '2020-12-31', 'SALESREP2', 1);
